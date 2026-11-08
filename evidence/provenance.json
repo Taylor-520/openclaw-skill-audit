@@ -1,0 +1,122 @@
+{
+  "prepared_on": "2026-11-08",
+  "source_archive_sha256": "313765c1b433c7ecf2b894717cb4c5a4338ce986dfd322bc5704d26dbe130de1",
+  "scope": "Public research subset, not the full local archive. Frozen plans are historical; some referenced runtime files are not published.",
+  "original_files": {
+    "skills/openclaw-skill-audit/SKILL.md": {
+      "archive_member": "skill/openclaw-skill-audit/SKILL.md",
+      "sha256": "7e47ade37109029b30d20fb8261e127d093061df5970bd0169c47a6c0ec10152",
+      "copy": "byte-identical"
+    },
+    "skills/openclaw-skill-audit/references/report-schema.json": {
+      "archive_member": "skill/openclaw-skill-audit/references/report-schema.json",
+      "sha256": "fe0f22c701718803704969f919b628706c5ffe9003e104b848134d5ef7bf052b",
+      "copy": "byte-identical"
+    },
+    "benchmark/cases.json": {
+      "archive_member": "experiments/round2/cases.json",
+      "sha256": "1db6d198a02bbf19027b2f71396d0c57beefb2610be28504c80b3434d9b8decb",
+      "copy": "byte-identical"
+    },
+    "benchmark/labels.json": {
+      "archive_member": "experiments/round2/labels.json",
+      "sha256": "3fce1e4a8fcc763c996ec41b683f77589eb35366ad202861361e7755c94e69c0",
+      "copy": "byte-identical"
+    },
+    "docs/protocol-round1.md": {
+      "archive_member": "experiments/round1/protocol.md",
+      "sha256": "d6c581a8e4ba8f83290395fd8de7caae7fcd73343bad3338dc0ae49e15f73bad",
+      "copy": "byte-identical"
+    },
+    "evidence/round1/frozen-plan.json": {
+      "archive_member": "experiments/round1/frozen-plan.json",
+      "sha256": "eefde410c2a629ad802437af1612f0719d12bf7877c368fc03645dde2d10a527",
+      "copy": "byte-identical"
+    },
+    "evidence/round1/responses/C01.txt": {
+      "archive_member": "experiments/round1/runs/C01/final.txt",
+      "sha256": "4a125ecf0604df136c6860f713a1ec2452c07d5238f0934b3dc9bb7752f5b148",
+      "copy": "byte-identical"
+    },
+    "docs/protocol-round2.md": {
+      "archive_member": "experiments/round2/protocol.md",
+      "sha256": "daa4f35b2be0eb815c6df07d1aa058faf577918f42f62590df5708143759686a",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/frozen-plan.json": {
+      "archive_member": "experiments/round2/frozen-plan.json",
+      "sha256": "5694349a7b2366d13e180aac90ed8d694ebd2e91f0519b99ce15d0489834ca5f",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C01.txt": {
+      "archive_member": "experiments/round2/runs/C01/final.txt",
+      "sha256": "00ddc7018ceb2f42b17297294e191216a0bad531568304fede11612bc7762db1",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C02.txt": {
+      "archive_member": "experiments/round2/runs/C02/final.txt",
+      "sha256": "caaaf56a8ba12cc1c0fb5a765a3d0659dbcd5af32092b628d564608c6521dc0c",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C03.txt": {
+      "archive_member": "experiments/round2/runs/C03/final.txt",
+      "sha256": "015d4d5eb4d00aacd6146e41d86417790f2940e62d0886ccf8e2547895d2b55a",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C04.txt": {
+      "archive_member": "experiments/round2/runs/C04/final.txt",
+      "sha256": "8a35ac48e28f7f2cc8ef8d6e602c05a2da8f007805f47fca6a125ca20c97c27a",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C05.txt": {
+      "archive_member": "experiments/round2/runs/C05/final.txt",
+      "sha256": "f8b1939852e8d512f1f903d14da0fbf706bb0f35233b3377a52ad5b7f3ce46ba",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C06.txt": {
+      "archive_member": "experiments/round2/runs/C06/final.txt",
+      "sha256": "51c752975e4200c8971994c79a048e3e3b98165bdef5fa4ad20a88ad231e53e4",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C07.txt": {
+      "archive_member": "experiments/round2/runs/C07/final.txt",
+      "sha256": "cb7ac1f5306bf8a5aefa7e86317fb743deff3f7045e65a77d3678bde1078340f",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C08.txt": {
+      "archive_member": "experiments/round2/runs/C08/final.txt",
+      "sha256": "e592c1e990636cff740acb0e5006e5f5c2fd7bdd132bf9ae8b35a26be58d8453",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C09.txt": {
+      "archive_member": "experiments/round2/runs/C09/final.txt",
+      "sha256": "fd9a3fc2dd031a9c5c06d242fdaabf9f5d15a917ba7dd6b9ae3bb242f167f246",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C10.txt": {
+      "archive_member": "experiments/round2/runs/C10/final.txt",
+      "sha256": "34c594ad4641511513dfa90c1ea515c4e9a92f93dd834b6c94958e29c1b4511d",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C11.txt": {
+      "archive_member": "experiments/round2/runs/C11/final.txt",
+      "sha256": "b4190622974254bb43ddfd663821f96cddb374da8f709dd5b9bb710385a947dd",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/responses/C12.txt": {
+      "archive_member": "experiments/round2/runs/C12/final.txt",
+      "sha256": "490f8c4f2fac0463454331cd58ded9a3dfee9727b9b4dd352732f8564b62f769",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/results.json": {
+      "archive_member": "experiments/round2/results.json",
+      "sha256": "1bce5737a5f3e2af6d4db80de42b12af0e5f02baf2191f27338d3a7971e4f8a3",
+      "copy": "byte-identical"
+    },
+    "evidence/round2/semantic-review.json": {
+      "archive_member": "experiments/round2/semantic-review.json",
+      "sha256": "49fc669fae991c6f6f6928a4481ab5b73e4fa3ccc1fd39a7f70fc93b636a87ef",
+      "copy": "byte-identical"
+    }
+  }
+}

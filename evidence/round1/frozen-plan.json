@@ -1,0 +1,42 @@
+{
+  "protocol_version": "v0.1",
+  "prepared_at_utc": "2026-11-07T14:52:01.390957+00:00",
+  "platform": "OpenClaw 2026.11.1",
+  "provider": "tencent-tokenhub",
+  "model": "hy4",
+  "base_url": "https://tokenhub.tencentmaas.com/v1",
+  "condition": "Skill v0.2; single arm, one initial attempt per case",
+  "thinking": "off",
+  "max_output_tokens": 8192,
+  "timeout_seconds": 180,
+  "temperature": "not overridden; provider/runtime default",
+  "tools_allowed": [
+    "read"
+  ],
+  "fs_workspace_only": true,
+  "case_order": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12"
+  ],
+  "planned_cases": 12,
+  "preflight_included_in_case_metrics": false,
+  "files": {
+    "experiment/cases.json": "1db6d198a02bbf19027b2f71396d0c57beefb2610be28504c80b3434d9b8decb",
+    "experiment/labels.json": "3fce1e4a8fcc763c996ec41b683f77589eb35366ad202861361e7755c94e69c0",
+    "experiment/protocol.md": "d6c581a8e4ba8f83290395fd8de7caae7fcd73343bad3338dc0ae49e15f73bad",
+    "experiment/openclaw-config.json": "ec5c4140501d2fbb7b33adccb114de688055c2598d206d1d426996b3ac8a8afd",
+    "experiment/run_experiment.py": "7202ff85ac3b8fa7648780e25ca4328ff78fbe14d889bc5f9ad6d18242408841",
+    "skill/openclaw-skill-audit/SKILL.md": "7e47ade37109029b30d20fb8261e127d093061df5970bd0169c47a6c0ec10152",
+    "skill/openclaw-skill-audit/references/report-schema.json": "fe0f22c701718803704969f919b628706c5ffe9003e104b848134d5ef7bf052b"
+  }
+}

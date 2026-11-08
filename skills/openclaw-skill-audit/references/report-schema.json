@@ -1,0 +1,580 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target",
+    "sources",
+    "injection_review",
+    "verdict",
+    "information_status",
+    "summary",
+    "findings",
+    "coverage",
+    "limitations",
+    "next_steps"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.2"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "input_mode",
+        "declared_purpose"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/text"
+        },
+        "input_mode": {
+          "enum": [
+            "local_files",
+            "delimited_text",
+            "missing"
+          ]
+        },
+        "declared_purpose": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "file",
+          "read_scope",
+          "status",
+          "omission_reason"
+        ],
+        "properties": {
+          "file": {
+            "$ref": "#/$defs/text"
+          },
+          "read_scope": {
+            "$ref": "#/$defs/text"
+          },
+          "status": {
+            "enum": [
+              "full",
+              "partial",
+              "unread"
+            ]
+          },
+          "omission_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "if": {
+          "properties": {
+            "status": {
+              "enum": [
+                "partial",
+                "unread"
+              ]
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "omission_reason": {
+              "$ref": "#/$defs/text"
+            }
+          }
+        }
+      }
+    },
+    "injection_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "finding_ids",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_performed"
+          ]
+        },
+        "finding_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/findingId"
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "verdict": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "undetermined"
+      ]
+    },
+    "information_status": {
+      "enum": [
+        "sufficient",
+        "insufficient"
+      ]
+    },
+    "summary": {
+      "$ref": "#/$defs/text"
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T6-1",
+        "T6-2",
+        "T6-3",
+        "T6-4",
+        "T6-5",
+        "T6-6"
+      ],
+      "properties": {
+        "T1": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T2": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T3": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T4": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T5": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6-1": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6-2": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6-3": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6-4": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6-5": {
+          "$ref": "#/$defs/coverageItem"
+        },
+        "T6-6": {
+          "$ref": "#/$defs/coverageItem"
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/text"
+      },
+      "minItems": 1
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/text"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenClaw Skill Audit Report v0.2",
+  "description": "Draft structural contract; validity does not establish evidence truth or detection effectiveness.",
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "findingId": {
+      "type": "string",
+      "pattern": "^F[1-9][0-9]*$"
+    },
+    "noHighMedium": {
+      "not": {
+        "contains": {
+          "properties": {
+            "risk": {
+              "enum": [
+                "high",
+                "medium"
+              ]
+            }
+          },
+          "required": [
+            "risk"
+          ]
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file",
+        "paragraph"
+      ],
+      "properties": {
+        "file": {
+          "$ref": "#/$defs/text"
+        },
+        "paragraph": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file",
+        "paragraph",
+        "quote",
+        "redacted"
+      ],
+      "properties": {
+        "file": {
+          "$ref": "#/$defs/text"
+        },
+        "paragraph": {
+          "$ref": "#/$defs/text"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "redacted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "coverageItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "scope",
+        "evidence",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "found",
+            "not_observed",
+            "not_reviewed"
+          ]
+        },
+        "scope": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/location"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "notes": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "found",
+              "not_observed"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "scope": {
+            "minItems": 1
+          },
+          "evidence": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "category",
+        "subcategory",
+        "risk",
+        "basis",
+        "inferred_text",
+        "evidence",
+        "reason",
+        "recommendation"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/findingId"
+        },
+        "category": {
+          "enum": [
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6"
+          ]
+        },
+        "subcategory": {
+          "enum": [
+            null,
+            "T6-1",
+            "T6-2",
+            "T6-3",
+            "T6-4",
+            "T6-5",
+            "T6-6"
+          ]
+        },
+        "risk": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "basis": {
+          "enum": [
+            "direct_text",
+            "decoded_inference"
+          ]
+        },
+        "inferred_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          },
+          "minItems": 1
+        },
+        "reason": {
+          "$ref": "#/$defs/text"
+        },
+        "recommendation": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "category": {
+                "const": "T6"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subcategory": {
+                "enum": [
+                  "T6-1",
+                  "T6-2",
+                  "T6-3",
+                  "T6-4",
+                  "T6-5",
+                  "T6-6"
+                ]
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "subcategory": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "basis": {
+                "const": "decoded_inference"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "inferred_text": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "inferred_text": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "target": {
+            "properties": {
+              "input_mode": {
+                "const": "missing"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "information_status": {
+            "const": "insufficient"
+          }
+        }
+      }
+    }
+  ],
+  "oneOf": [
+    {
+      "properties": {
+        "verdict": {
+          "const": "high"
+        },
+        "findings": {
+          "contains": {
+            "properties": {
+              "risk": {
+                "enum": [
+                  "high"
+                ]
+              }
+            },
+            "required": [
+              "risk"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "verdict": {
+          "const": "medium"
+        },
+        "findings": {
+          "contains": {
+            "properties": {
+              "risk": {
+                "enum": [
+                  "medium"
+                ]
+              }
+            },
+            "required": [
+              "risk"
+            ]
+          },
+          "not": {
+            "contains": {
+              "properties": {
+                "risk": {
+                  "enum": [
+                    "high"
+                  ]
+                }
+              },
+              "required": [
+                "risk"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "verdict": {
+          "const": "low"
+        },
+        "information_status": {
+          "const": "sufficient"
+        },
+        "findings": {
+          "$ref": "#/$defs/noHighMedium"
+        }
+      }
+    },
+    {
+      "properties": {
+        "verdict": {
+          "const": "undetermined"
+        },
+        "information_status": {
+          "const": "insufficient"
+        },
+        "findings": {
+          "$ref": "#/$defs/noHighMedium"
+        }
+      }
+    }
+  ]
+}
